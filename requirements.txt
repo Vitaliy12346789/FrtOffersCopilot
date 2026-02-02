@@ -11,7 +11,9 @@ aiosqlite>=0.19.0
 # AI integration
 anthropic>=0.18.0       # Claude API for clause suggestion
 
+# PDF generation
+reportlab>=4.0.0        # PDF document creation
+
 # Future additions (uncomment when needed)
 # openai>=1.0.0          # OpenAI alternative
-# reportlab>=4.0.0       # PDF generation
 # python-multipart       # File uploads

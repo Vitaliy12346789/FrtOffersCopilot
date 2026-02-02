@@ -402,6 +402,68 @@ async def ai_status():
     }
 
 
+# ============================================================================
+# PDF GENERATION ENDPOINTS
+# ============================================================================
+
+from fastapi.responses import Response
+
+@app.get("/api/offers/{offer_id}/pdf")
+async def download_offer_pdf(offer_id: int, db: AsyncSession = Depends(get_db)):
+    """Generate and download PDF for a saved offer"""
+    from .pdf_generator import generate_offer_pdf, is_pdf_available
+
+    if not is_pdf_available():
+        raise HTTPException(
+            status_code=503,
+            detail="PDF generation not available. Install reportlab."
+        )
+
+    # Get offer from database
+    offer = await crud.get_offer(db, offer_id)
+    if not offer:
+        raise HTTPException(status_code=404, detail="Offer not found")
+
+    try:
+        pdf_content = generate_offer_pdf(
+            offer_text=offer.offer_text,
+            load_port=offer.load_port,
+            discharge_port=offer.discharge_port,
+            cargo=offer.cargo,
+            quantity=offer.quantity,
+            freight_rate=offer.freight_rate,
+            demurrage_rate=offer.demurrage_rate,
+            laycan_start=str(offer.laycan_start),
+            laycan_end=str(offer.laycan_end),
+            charterer_name=offer.charterer_name,
+            offer_id=offer.id,
+            status=offer.status
+        )
+
+        filename = f"offer_{offer_id}_{offer.load_port}_{offer.discharge_port}.pdf"
+
+        return Response(
+            content=pdf_content,
+            media_type="application/pdf",
+            headers={
+                "Content-Disposition": f'attachment; filename="{filename}"'
+            }
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"PDF generation failed: {str(e)}")
+
+
+@app.get("/api/pdf/status")
+async def pdf_status():
+    """Check if PDF generation is available"""
+    from .pdf_generator import is_pdf_available
+
+    return {
+        "available": is_pdf_available(),
+        "library": "reportlab"
+    }
+
+
 # Serve frontend static files
 frontend_path = PROJECT_ROOT / "frontend"
 
