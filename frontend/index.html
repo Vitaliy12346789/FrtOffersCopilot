@@ -19,9 +19,16 @@
 <body class="bg-gray-100 min-h-screen">
     <div class="container mx-auto px-4 py-8 max-w-6xl">
         <!-- Header -->
-        <header class="mb-8">
-            <h1 class="text-3xl font-bold text-gray-800">FrtOffersCopilot</h1>
-            <p class="text-gray-600">Maritime Freight Firm Offer Generator</p>
+        <header class="mb-8 flex justify-between items-center">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-800">FrtOffersCopilot</h1>
+                <p class="text-gray-600">Maritime Freight Firm Offer Generator</p>
+            </div>
+            <nav>
+                <a href="offers.html" class="bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-md transition duration-200">
+                    My Offers
+                </a>
+            </nav>
         </header>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -128,12 +135,17 @@
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-xl font-semibold text-gray-700">Generated Offer</h2>
                     <div class="flex gap-2">
+                        <button id="saveBtn" disabled
+                                class="bg-purple-600 hover:bg-purple-700 disabled:bg-gray-400 text-white font-medium py-2 px-4 rounded-md transition duration-200">
+                            Save Offer
+                        </button>
                         <button id="copyBtn" disabled
                                 class="bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white font-medium py-2 px-4 rounded-md transition duration-200">
                             Copy to Clipboard
                         </button>
                     </div>
                 </div>
+                <div id="saveSuccess" class="hidden text-purple-600 text-sm mb-2">Offer saved! <a href="#" id="viewSavedOffer" class="underline">View</a></div>
                 <div id="copySuccess" class="hidden text-green-600 text-sm mb-2">Copied to clipboard!</div>
                 <textarea id="offerOutput" readonly
                           class="w-full h-[600px] border border-gray-300 rounded-md px-3 py-2 font-mono text-sm bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"

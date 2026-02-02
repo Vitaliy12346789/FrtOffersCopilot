@@ -1,22 +1,37 @@
-from fastapi import FastAPI, HTTPException
+from contextlib import asynccontextmanager
+from fastapi import FastAPI, HTTPException, Depends
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pathlib import Path
 from typing import List
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from .models import (
     OfferRequest, OfferResponse, OfferSummary,
-    PortInfo, CargoInfo, ChartererInfo
+    PortInfo, CargoInfo, ChartererInfo,
+    SaveOfferRequest, SavedOffer, OfferListItem, OfferListResponse, UpdateOfferRequest
 )
 from .generator import (
     generate_firm_offer,
     get_ports_data, get_cargoes_data, get_charterers_data
 )
+from .database import init_db, close_db, get_db
+from . import crud
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Initialize database on startup, cleanup on shutdown."""
+    await init_db()
+    yield
+    await close_db()
+
 
 app = FastAPI(
     title="FrtOffersCopilot API",
     description="API for generating maritime freight firm offers",
-    version="1.0.0"
+    version="2.0.0",
+    lifespan=lifespan
 )
 
 # Get project root for static files
@@ -139,6 +154,95 @@ async def generate_offer(request: OfferRequest):
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+# ============================================================================
+# SAVED OFFERS ENDPOINTS
+# ============================================================================
+
+@app.post("/api/offers", response_model=SavedOffer)
+async def save_offer(request: SaveOfferRequest, db: AsyncSession = Depends(get_db)):
+    """Save a generated offer to the database"""
+    try:
+        offer = await crud.create_offer(
+            db=db,
+            load_port=request.load_port,
+            discharge_port=request.discharge_port,
+            cargo=request.cargo,
+            quantity=request.quantity,
+            freight_rate=request.freight_rate,
+            demurrage_rate=request.demurrage_rate,
+            laycan_start=request.laycan_start,
+            laycan_end=request.laycan_end,
+            offer_text=request.offer_text,
+            summary=request.summary,
+            charterer_id=request.charterer_id,
+            charterer_name=request.charterer_name,
+            or_sub=request.or_sub,
+            quantity_tolerance=request.quantity_tolerance,
+            status=request.status
+        )
+        return offer
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/offers", response_model=OfferListResponse)
+async def list_offers(
+    page: int = 1,
+    per_page: int = 20,
+    status: str = None,
+    db: AsyncSession = Depends(get_db)
+):
+    """Get list of saved offers with pagination"""
+    try:
+        skip = (page - 1) * per_page
+        offers = await crud.get_offers(db, skip=skip, limit=per_page, status=status)
+        total = await crud.count_offers(db, status=status)
+
+        return OfferListResponse(
+            offers=[OfferListItem.model_validate(o) for o in offers],
+            total=total,
+            page=page,
+            per_page=per_page
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/offers/{offer_id}", response_model=SavedOffer)
+async def get_offer(offer_id: int, db: AsyncSession = Depends(get_db)):
+    """Get a specific offer by ID"""
+    offer = await crud.get_offer(db, offer_id)
+    if not offer:
+        raise HTTPException(status_code=404, detail="Offer not found")
+    return offer
+
+
+@app.patch("/api/offers/{offer_id}", response_model=SavedOffer)
+async def update_offer(
+    offer_id: int,
+    request: UpdateOfferRequest,
+    db: AsyncSession = Depends(get_db)
+):
+    """Update an existing offer"""
+    update_data = request.model_dump(exclude_unset=True)
+    if not update_data:
+        raise HTTPException(status_code=400, detail="No fields to update")
+
+    offer = await crud.update_offer(db, offer_id, **update_data)
+    if not offer:
+        raise HTTPException(status_code=404, detail="Offer not found")
+    return offer
+
+
+@app.delete("/api/offers/{offer_id}")
+async def delete_offer(offer_id: int, db: AsyncSession = Depends(get_db)):
+    """Delete an offer"""
+    deleted = await crud.delete_offer(db, offer_id)
+    if not deleted:
+        raise HTTPException(status_code=404, detail="Offer not found")
+    return {"message": "Offer deleted successfully"}
 
 
 # Serve frontend static files

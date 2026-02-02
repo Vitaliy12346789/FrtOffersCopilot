@@ -17,10 +17,17 @@ const offerForm = document.getElementById('offerForm');
 const offerOutput = document.getElementById('offerOutput');
 const copyBtn = document.getElementById('copyBtn');
 const copySuccess = document.getElementById('copySuccess');
+const saveBtn = document.getElementById('saveBtn');
+const saveSuccess = document.getElementById('saveSuccess');
+const viewSavedOffer = document.getElementById('viewSavedOffer');
 const summary = document.getElementById('summary');
 const summaryContent = document.getElementById('summaryContent');
 const loadingOverlay = document.getElementById('loadingOverlay');
 const generateBtn = document.getElementById('generateBtn');
+
+// Store last generated offer data for saving
+let lastGeneratedOffer = null;
+let lastSummary = null;
 
 // Initialize
 document.addEventListener('DOMContentLoaded', async () => {
@@ -103,6 +110,9 @@ function setupEventListeners() {
     // Copy button
     copyBtn.addEventListener('click', handleCopy);
 
+    // Save button
+    saveBtn.addEventListener('click', handleSave);
+
     // Enable editing of output
     offerOutput.removeAttribute('readonly');
 
@@ -175,6 +185,27 @@ async function handleSubmit(e) {
         // Update output
         offerOutput.value = result.firm_offer_text;
         copyBtn.disabled = false;
+        saveBtn.disabled = false;
+
+        // Store offer data for saving
+        lastGeneratedOffer = {
+            load_port: loadPortSelect.value,
+            discharge_port: dischargePortSelect.value,
+            cargo: cargoSelect.value,
+            quantity: parseInt(quantityInput.value),
+            freight_rate: parseFloat(freightRateInput.value),
+            demurrage_rate: parseFloat(demurrageRateInput.value),
+            laycan_start: laycanStartInput.value,
+            laycan_end: laycanEndInput.value,
+            charterer_id: chartererSelect.value || null,
+            charterer_name: chartererSelect.value ? chartererSelect.options[chartererSelect.selectedIndex].text : null,
+            or_sub: orSubCheckbox.checked,
+            quantity_tolerance: parseFloat(toleranceInput.value)
+        };
+        lastSummary = result.summary;
+
+        // Hide save success if previously shown
+        saveSuccess.classList.add('hidden');
 
         // Update summary
         showSummary(result.summary);
@@ -224,5 +255,57 @@ async function handleCopy() {
         setTimeout(() => {
             copySuccess.classList.add('hidden');
         }, 2000);
+    }
+}
+
+// Handle save offer
+async function handleSave() {
+    if (!lastGeneratedOffer) {
+        alert('Please generate an offer first');
+        return;
+    }
+
+    saveBtn.disabled = true;
+    saveBtn.textContent = 'Saving...';
+
+    try {
+        const saveData = {
+            ...lastGeneratedOffer,
+            offer_text: offerOutput.value, // Use potentially edited text
+            summary: lastSummary,
+            status: 'draft'
+        };
+
+        const response = await fetch(`${API_BASE}/api/offers`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(saveData)
+        });
+
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.detail || 'Failed to save offer');
+        }
+
+        const savedOffer = await response.json();
+
+        // Show success message with link
+        saveSuccess.classList.remove('hidden');
+        viewSavedOffer.href = `offers.html?id=${savedOffer.id}`;
+
+        // Update button state
+        saveBtn.textContent = 'Saved!';
+        setTimeout(() => {
+            saveBtn.textContent = 'Save Offer';
+            saveBtn.disabled = false;
+        }, 2000);
+
+    } catch (error) {
+        console.error('Error saving offer:', error);
+        alert(`Error saving offer: ${error.message}`);
+        saveBtn.textContent = 'Save Offer';
+        saveBtn.disabled = false;
     }
 }

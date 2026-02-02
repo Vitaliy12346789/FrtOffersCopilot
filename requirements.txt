@@ -1,3 +1,15 @@
+# Core framework
 fastapi>=0.115.0
 uvicorn>=0.32.0
 pydantic>=2.10.0
+
+# Database
+sqlalchemy>=2.0.0
+asyncpg>=0.29.0
+aiosqlite>=0.19.0
+
+# Future additions (uncomment when needed)
+# openai>=1.0.0          # AI clause suggestion
+# anthropic>=0.18.0      # Claude API
+# reportlab>=4.0.0       # PDF generation
+# python-multipart       # File uploads
