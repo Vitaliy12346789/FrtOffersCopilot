@@ -1,0 +1,70 @@
+{
+  "cargoes": [
+    {
+      "cargo_id": "CARGO-001",
+      "name": "Corn",
+      "category": "grain",
+      "stw_min": 49,
+      "stw_max": 50,
+      "stw_unit": "cf/ton",
+      "description_template": "{quantity} MTS OF CORN IN BULK STW ABT {stw_min}-{stw_max} WOG",
+      "notes": "Most common grain cargo Ukraine-Egypt"
+    },
+    {
+      "cargo_id": "CARGO-002",
+      "name": "Wheat",
+      "category": "grain",
+      "stw_min": 45,
+      "stw_max": 48,
+      "stw_unit": "cf/ton",
+      "description_template": "{quantity} MTS OF WHEAT IN BULK STW ABT {stw_min}-{stw_max} WOG",
+      "notes": "Feed wheat vs milling wheat may vary"
+    },
+    {
+      "cargo_id": "CARGO-003",
+      "name": "Barley",
+      "category": "grain",
+      "stw_min": 51,
+      "stw_max": 54,
+      "stw_unit": "cf/ton",
+      "description_template": "{quantity} MTS OF BARLEY IN BULK STW ABT {stw_min}-{stw_max} WOG",
+      "notes": "Lighter than corn"
+    },
+    {
+      "cargo_id": "CARGO-004",
+      "name": "Sunflower Seeds",
+      "category": "grain",
+      "stw_min": 75,
+      "stw_max": 80,
+      "stw_unit": "cf/ton",
+      "description_template": "{quantity} MTS OF SUNFLOWER SEEDS IN BULK STW ABT {stw_min}-{stw_max} WOG",
+      "notes": "Very light cargo, volume limited"
+    },
+    {
+      "cargo_id": "CARGO-005",
+      "name": "Soybeans",
+      "category": "grain",
+      "stw_min": 48,
+      "stw_max": 50,
+      "stw_unit": "cf/ton",
+      "description_template": "{quantity} MTS OF SOYBEANS IN BULK STW ABT {stw_min}-{stw_max} WOG",
+      "notes": "Similar to corn"
+    },
+    {
+      "cargo_id": "CARGO-006",
+      "name": "Rapeseed",
+      "category": "grain",
+      "stw_min": 55,
+      "stw_max": 58,
+      "stw_unit": "cf/ton",
+      "description_template": "{quantity} MTS OF RAPESEED IN BULK STW ABT {stw_min}-{stw_max} WOG",
+      "notes": "Canola/rapeseed"
+    }
+  ],
+  "grain_clauses": {
+    "previous_cargo": "LAST 3 CARGOES: CLEAN/HARMLESS/ODORLESS ONLY.\nNO FERTILIZERS, CHEMICALS, COAL, OR OTHER CONTAMINATING CARGOES",
+    "trimming": "CARGO TO BE PROPERLY TRIMMED, LEVELED AND STOWED IN ACCORDANCE WITH IMSBC CODE",
+    "surveyor": "INDEPENDENT SURVEYOR TO BE APPOINTED BY CHARTERERS AT LOAD PORT FOR DRAFT SURVEY AND QUALITY INSPECTION",
+    "documents_time": "TIME USED FOR OBTAINING/CHECKING DOCUMENTS AT LOAD PORT NOT TO COUNT AS L/T UP TO MAX 24 HRS"
+  }
+}

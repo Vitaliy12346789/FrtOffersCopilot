@@ -1,0 +1,136 @@
+{
+  "clauses": {
+    "ukraine_danube": {
+      "sulina": {
+        "id": "COUNTRY-UKR-001",
+        "name": "Sulina/Bystroe Passing",
+        "text": "SULINA AND BYSTROE PASSING CHARGES FOR OWNRS ACCOUNT.\nVSSL TO USE BYSTROE CHANNEL AS PRIORITY, IN CASE NOT AVAILABLE THEN SULINA CHANNEL.",
+        "ports": ["Reni", "Izmail", "Orlivka", "Kilia"]
+      }
+    },
+    "ukraine_all": {
+      "air_raids": {
+        "id": "VAR-EX-001",
+        "name": "Air Raid Alerts",
+        "text": "TIME LOST DUE TO WAR/AIR RAID ALERTS NOT TO COUNT AS L/T",
+        "ports": ["Reni", "Izmail", "Orlivka", "Kilia", "Pivdennyi", "Odesa", "Chornomorsk"]
+      }
+    },
+    "ukraine_poc": {
+      "jcc": {
+        "id": "COUNTRY-UKR-002",
+        "name": "JCC Inspection & ERWI",
+        "text": "VSSL TO PASS INSPECTION BY JCC (JOINT COORDINATION CENTER) IN ISTANBUL PRIOR TO LOADING IN UKRAINE.\n\nERWI - EXTENDED RUSSIA/UKRAINE WAR INSURANCE FOR OWNRS ACCOUNT",
+        "ports": ["Pivdennyi", "Odesa", "Chornomorsk"]
+      },
+      "cancellation": {
+        "id": "COUNTRY-UKR-003",
+        "name": "Corridor Cancellation",
+        "text": "CHRTS HAVE OPTION TO CANCEL THIS C/P FREE OF CONSEQUENCES IN CASE MARITIME CORRIDOR TO UKRAINIAN PORTS CLOSED BY UKRAINIAN OR RUSSIAN AUTHORITIES",
+        "ports": ["Pivdennyi", "Odesa", "Chornomorsk"]
+      }
+    },
+    "egypt": {
+      "nor_hours": {
+        "id": "VAR-NOR-002",
+        "name": "NOR Office Hours Egypt",
+        "text": "AT DISCHARGE PORT N.O.R. TO BE TENDERED ON WORKING DAYS DURING OFFICE HRS (08:00-12:00 HRS) FROM SUNDAY TO THURSDAY",
+        "ports": ["Alexandria", "Damietta", "Port Said", "Dekheila"]
+      },
+      "sampling": {
+        "id": "COUNTRY-EGY-001",
+        "name": "Egyptian Sampling",
+        "text": "AT DISCHARGE PORT SAMPLING CARRIED OUT AS PER EGYPTIAN LAWS AND REGULATIONS. TIME FOR SAMPLING NOT TO COUNT AS L/T.",
+        "ports": ["Alexandria", "Damietta", "Port Said", "Dekheila"]
+      }
+    },
+    "grain": {
+      "previous_cargo": {
+        "id": "CARGO-GRAIN-003",
+        "name": "Previous Cargo Restrictions",
+        "text": "LAST 3 CARGOES: CLEAN/HARMLESS/ODORLESS ONLY.\nNO FERTILIZERS, CHEMICALS, COAL, OR OTHER CONTAMINATING CARGOES",
+        "cargoes": ["Corn", "Wheat", "Barley", "Soybeans", "Sunflower Seeds", "Rapeseed", "Sorghum"]
+      },
+      "trimming": {
+        "id": "CARGO-GRAIN-004",
+        "name": "Trimming Requirements",
+        "text": "CARGO TO BE PROPERLY TRIMMED, LEVELED AND STOWED IN ACCORDANCE WITH IMSBC CODE",
+        "cargoes": ["Corn", "Wheat", "Barley", "Soybeans", "Sunflower Seeds", "Rapeseed", "Sorghum"]
+      },
+      "surveyor": {
+        "id": "CARGO-GRAIN-005",
+        "name": "Surveyor Access",
+        "text": "CHRTS/RCVRS/SHPRS SURVEYORS TO HAVE FREE AND UNRESTRICTED ACCESS TO VSSL AND HOLDS AT LOAD AND DISCHARGE PORTS FOR INSPECTION, SAMPLING AND SUPERVISION",
+        "cargoes": ["Corn", "Wheat", "Barley", "Soybeans", "Sunflower Seeds", "Rapeseed", "Sorghum"]
+      },
+      "documents_eiu": {
+        "id": "CARGO-GRAIN-006",
+        "name": "Documents Time EIU",
+        "text": "TIME FROM ALL ONBOARD DOCS READY AND UP TO COMPLETION OF DISCHARGING EIU",
+        "cargoes": ["Corn", "Wheat", "Barley", "Soybeans", "Sunflower Seeds", "Rapeseed", "Sorghum"],
+        "condition": "discharge_egypt"
+      }
+    },
+    "standard": {
+      "nor_ukraine": {
+        "id": "VAR-NOR-001",
+        "name": "NOR Office Hours Ukraine",
+        "text": "AT LOAD PORT N.O.R. TO BE TENDERED ON WORKING DAYS DURING OFFICE HRS (08:00-17:00 HRS) FROM MONDAY TO FRIDAY"
+      },
+      "laytime_start": {
+        "id": "VAR-LT-001",
+        "name": "Laytime Commencement",
+        "text": "L/T TO COMMENCE 0800 HRS LT NEXT WORKING DAY AFTER VALID N.O.R. TENDERED, VSSL MOORED A.B.A.L.D."
+      },
+      "berth_restrictions": {
+        "id": "PORT-RENI-001",
+        "name": "Berth Restrictions",
+        "text": "OWNRS SATSFY THEMSLVS WITH ANY KIND OF LOADING BERTH/PORT/CHANNEL/RIVER RESTRICTIONS"
+      },
+      "gsba": {
+        "id": "PORT-RENI-002",
+        "name": "Good Safe Berth",
+        "text": "GSB(A): GOOD SAFE BERTH ALWAYS AFLOAT"
+      },
+      "freight_fiost": {
+        "id": "FREIGHT-001",
+        "name": "Freight Terms",
+        "text": "FREIGHT: USD {RATE} PMT FIOST",
+        "template": true
+      },
+      "demurrage": {
+        "id": "DEM-001",
+        "name": "Demurrage",
+        "text": "DEMURRAGE: USD {RATE} PDPR FD BENDS (LESS BROKERAGE COMMISSION)",
+        "template": true
+      },
+      "demurrage_detention": {
+        "id": "DEM-001-B",
+        "name": "Demurrage/Detention (Ukraine)",
+        "text": "DEMURRAGE/DETENTION: USD {RATE} PDPR FD BENDS (LESS BROKERAGE COMMISSION)",
+        "template": true,
+        "condition": "ukraine_danube"
+      },
+      "proforma": {
+        "id": "REF-001",
+        "name": "Proforma Reference",
+        "text": "OWISE AS PER ATTACHED CHRTS PROFORMA CP, BASED ON SYNACOMEX 2000 C/P, LOGICALLY AMENDED AS PER MAIN TERMS AGREED (WHICH ALWAYS PREVAIL)"
+      }
+    }
+  },
+  "cargo_stw": {
+    "Corn": "49-50",
+    "Wheat": "47-48",
+    "Barley": "51-53",
+    "Soybeans": "52-54",
+    "Sunflower Seeds": "65-70",
+    "Sunflower Meal": "55-58",
+    "Rapeseed": "52-54",
+    "Sorghum": "48-50"
+  },
+  "ports": {
+    "ukraine_danube": ["Reni", "Izmail", "Orlivka", "Kilia"],
+    "ukraine_poc": ["Pivdennyi", "Odesa", "Chornomorsk"],
+    "egypt": ["Alexandria", "Damietta", "Port Said", "Dekheila"]
+  }
+}

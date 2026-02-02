@@ -1,0 +1,144 @@
+{
+  "ports": {
+    "load": [
+      {
+        "port_id": "PORT-UKR-DAN-001",
+        "name": "Reni",
+        "country": "Ukraine",
+        "region": "Danube",
+        "type": "river",
+        "max_draft": 5.5,
+        "draft_note": "Max draft depends on Sulina channel conditions",
+        "clauses": ["CLAUSE-UKR-SULINA", "CLAUSE-UKR-AIRRAID", "CLAUSE-UKR-DETENTION"]
+      },
+      {
+        "port_id": "PORT-UKR-DAN-002",
+        "name": "Izmail",
+        "country": "Ukraine",
+        "region": "Danube",
+        "type": "river",
+        "max_draft": 5.5,
+        "draft_note": "Similar to Reni",
+        "clauses": ["CLAUSE-UKR-SULINA", "CLAUSE-UKR-AIRRAID", "CLAUSE-UKR-DETENTION"]
+      },
+      {
+        "port_id": "PORT-UKR-POC-001",
+        "name": "Pivdennyi",
+        "country": "Ukraine",
+        "region": "POC",
+        "type": "sea",
+        "max_draft": 18.0,
+        "draft_note": "Deep water port",
+        "clauses": ["CLAUSE-UKR-JCC", "CLAUSE-UKR-ERWI", "CLAUSE-UKR-AIRRAID", "CLAUSE-UKR-CANCELLATION"]
+      },
+      {
+        "port_id": "PORT-UKR-POC-002",
+        "name": "Odesa",
+        "country": "Ukraine",
+        "region": "POC",
+        "type": "sea",
+        "max_draft": 13.0,
+        "draft_note": "Main Ukrainian port",
+        "clauses": ["CLAUSE-UKR-JCC", "CLAUSE-UKR-ERWI", "CLAUSE-UKR-AIRRAID", "CLAUSE-UKR-CANCELLATION"]
+      },
+      {
+        "port_id": "PORT-UKR-POC-003",
+        "name": "Chornomorsk",
+        "country": "Ukraine",
+        "region": "POC",
+        "type": "sea",
+        "max_draft": 14.0,
+        "draft_note": "Former Illichivsk",
+        "clauses": ["CLAUSE-UKR-JCC", "CLAUSE-UKR-ERWI", "CLAUSE-UKR-AIRRAID", "CLAUSE-UKR-CANCELLATION"]
+      }
+    ],
+    "discharge": [
+      {
+        "port_id": "PORT-EGY-001",
+        "name": "Alexandria",
+        "country": "Egypt",
+        "region": "Mediterranean",
+        "type": "sea",
+        "max_draft": 11.0,
+        "nor_hours": {"start": "08:00", "end": "12:00", "days": "Sun-Thu"},
+        "clauses": ["CLAUSE-EGY-NOR", "CLAUSE-EGY-SAMPLING", "CLAUSE-EGY-SHINC"]
+      },
+      {
+        "port_id": "PORT-EGY-002",
+        "name": "Damietta",
+        "country": "Egypt",
+        "region": "Mediterranean",
+        "type": "sea",
+        "max_draft": 14.0,
+        "nor_hours": {"start": "08:00", "end": "12:00", "days": "Sun-Thu"},
+        "clauses": ["CLAUSE-EGY-NOR", "CLAUSE-EGY-SAMPLING", "CLAUSE-EGY-SHINC"]
+      },
+      {
+        "port_id": "PORT-EGY-003",
+        "name": "Port Said",
+        "country": "Egypt",
+        "region": "Mediterranean",
+        "type": "sea",
+        "max_draft": 12.0,
+        "nor_hours": {"start": "08:00", "end": "12:00", "days": "Sun-Thu"},
+        "clauses": ["CLAUSE-EGY-NOR", "CLAUSE-EGY-SAMPLING", "CLAUSE-EGY-SHINC"]
+      }
+    ]
+  },
+  "clauses": {
+    "CLAUSE-UKR-SULINA": {
+      "id": "CLAUSE-UKR-SULINA",
+      "name": "Sulina/Bystroe Channel",
+      "applies_to": ["Danube"],
+      "text": "SULINA AND BYSTROE PASSING CHARGES FOR OWNRS ACCOUNT.\nVSSL TO USE BYSTROE CHANNEL AS PRIORITY, IN CASE NOT AVAILABLE THEN SULINA CHANNEL."
+    },
+    "CLAUSE-UKR-AIRRAID": {
+      "id": "CLAUSE-UKR-AIRRAID",
+      "name": "Air Raid Alerts",
+      "applies_to": ["Ukraine"],
+      "text": "TIME LOST DUE TO WAR/AIR RAID ALERTS NOT TO COUNT AS L/T"
+    },
+    "CLAUSE-UKR-DETENTION": {
+      "id": "CLAUSE-UKR-DETENTION",
+      "name": "Detention Combined",
+      "applies_to": ["Danube"],
+      "text": "DEMURRAGE/DETENTION TO BE PAID TOGETHER WITH FREIGHT UPON COMPLETION OF DISCHARGE"
+    },
+    "CLAUSE-UKR-JCC": {
+      "id": "CLAUSE-UKR-JCC",
+      "name": "JCC Inspection",
+      "applies_to": ["POC"],
+      "text": "VSSL TO PASS INSPECTION BY JCC (JOINT COORDINATION CENTER) IN ISTANBUL PRIOR TO LOADING IN UKRAINE.\nTIME WAITING FOR JCC INSPECTION NOT TO COUNT AS L/T."
+    },
+    "CLAUSE-UKR-ERWI": {
+      "id": "CLAUSE-UKR-ERWI",
+      "name": "War Insurance",
+      "applies_to": ["POC"],
+      "text": "ERWI - EXTENDED RUSSIA/UKRAINE WAR INSURANCE FOR OWNRS ACCOUNT"
+    },
+    "CLAUSE-UKR-CANCELLATION": {
+      "id": "CLAUSE-UKR-CANCELLATION",
+      "name": "War Cancellation",
+      "applies_to": ["POC"],
+      "text": "IN CASE OF PORT CLOSURE DUE TO WAR ACTIVITIES, CHARTERERS HAVE THE RIGHT TO CANCEL THE FIXTURE WITHOUT ANY CLAIMS FROM EITHER SIDE."
+    },
+    "CLAUSE-EGY-NOR": {
+      "id": "CLAUSE-EGY-NOR",
+      "name": "Egypt NOR Hours",
+      "applies_to": ["Egypt"],
+      "text": "AT DISCHARGE PORT N.O.R. TO BE TENDERED ON WORKING DAYS DURING OFFICE HRS (08:00-12:00 HRS) FROM SUNDAY TO THURSDAY"
+    },
+    "CLAUSE-EGY-SAMPLING": {
+      "id": "CLAUSE-EGY-SAMPLING",
+      "name": "Egypt Sampling",
+      "applies_to": ["Egypt"],
+      "text": "AT DISCHARGE PORT SAMPLING CARRIED OUT AS PER EGYPTIAN LAWS AND REGULATIONS. TIME FOR SAMPLING NOT TO COUNT AS L/T."
+    },
+    "CLAUSE-EGY-SHINC": {
+      "id": "CLAUSE-EGY-SHINC",
+      "name": "SHINC/FHINC",
+      "applies_to": ["Egypt"],
+      "text": "SATURDAYS, SUNDAYS AND HOLIDAYS INCLUDED (SHINC) AT LOAD PORT.\nFRIDAYS, SATURDAYS AND HOLIDAYS INCLUDED (FHINC) AT DISCHARGE PORT."
+    }
+  }
+}

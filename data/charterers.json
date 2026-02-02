@@ -1,0 +1,57 @@
+{
+  "charterers": [
+    {
+      "charterer_id": "CHTR-001",
+      "charterer_name": "Ardi Group",
+      "companies": [
+        {
+          "company_id": "CHTR-001-A",
+          "company_name": "ARDI GROUP TRADING LTD",
+          "country": "Bulgaria",
+          "city": "Burgas",
+          "postal_code": "8000",
+          "address": "2, Ivailo Str.",
+          "registration_number": "206814919",
+          "vat": "BG206814919",
+          "or_sub_default": true,
+          "is_primary": true
+        }
+      ],
+      "standard_commission": {
+        "format": "split",
+        "total_pct": 2.5,
+        "breakdown": [
+          {"party": "Address Commission", "pct": 1.25},
+          {"party": "Navistar", "pct": 1.25}
+        ]
+      },
+      "notes": "Main client - grain routes Ukraine to Egypt/Mediterranean"
+    },
+    {
+      "charterer_id": "CHTR-002",
+      "charterer_name": "Mediterranean Shipping Ltd",
+      "companies": [
+        {
+          "company_id": "CHTR-002-A",
+          "company_name": "MEDITERRANEAN SHIPPING LIMITED",
+          "country": "Cyprus",
+          "city": "Limassol",
+          "postal_code": "3040",
+          "address": "25 Olympion Street",
+          "registration_number": "HE 123456",
+          "vat": "CY12345678X",
+          "or_sub_default": false,
+          "is_primary": true
+        }
+      ],
+      "standard_commission": {
+        "format": "total",
+        "total_pct": 3.0,
+        "breakdown": [
+          {"party": "Navistar", "pct": 3.0}
+        ]
+      },
+      "notes": "No OR SUB for this client"
+    }
+  ]
+}
