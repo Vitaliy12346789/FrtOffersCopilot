@@ -312,6 +312,96 @@ async def get_clause(clause_id: str):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+# ============================================================================
+# AI CLAUSE SELECTION ENDPOINTS
+# ============================================================================
+
+from pydantic import BaseModel
+from typing import Optional as OptionalType
+
+class ClauseSelectionRequest(BaseModel):
+    """Request for AI clause selection"""
+    load_port: str
+    discharge_port: str
+    cargo: str
+    quantity: int
+    port_type: str  # DANUBE or POC
+    discharge_country: str  # Egypt, Turkey, etc.
+    cargo_category: str  # grain, steel, etc.
+    charterer_name: OptionalType[str] = None
+
+
+class OfferCritiqueRequest(BaseModel):
+    """Request for AI offer critique"""
+    offer_text: str
+    load_port: str
+    discharge_port: str
+    cargo: str
+    quantity: int
+    port_type: str
+
+
+@app.post("/api/ai/suggest-clauses")
+async def suggest_clauses(request: ClauseSelectionRequest):
+    """AI-powered clause selection based on route and cargo"""
+    from .ai_service import ai_clause_selection
+
+    try:
+        result = await ai_clause_selection(
+            load_port=request.load_port,
+            discharge_port=request.discharge_port,
+            cargo=request.cargo,
+            quantity=request.quantity,
+            port_type=request.port_type,
+            discharge_country=request.discharge_country,
+            cargo_category=request.cargo_category,
+            charterer_name=request.charterer_name
+        )
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/api/ai/critique")
+async def critique_offer(request: OfferCritiqueRequest):
+    """AI-powered offer critique and suggestions"""
+    from .ai_service import ai_offer_critique
+
+    try:
+        result = await ai_offer_critique(
+            offer_text=request.offer_text,
+            context={
+                "load_port": request.load_port,
+                "discharge_port": request.discharge_port,
+                "cargo": request.cargo,
+                "quantity": request.quantity,
+                "port_type": request.port_type
+            }
+        )
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/ai/status")
+async def ai_status():
+    """Check if AI service is available"""
+    import os
+    has_key = bool(os.getenv("ANTHROPIC_API_KEY"))
+    try:
+        import anthropic
+        has_lib = True
+    except ImportError:
+        has_lib = False
+
+    return {
+        "available": has_key and has_lib,
+        "has_api_key": has_key,
+        "has_library": has_lib,
+        "provider": "anthropic" if has_key else None
+    }
+
+
 # Serve frontend static files
 frontend_path = PROJECT_ROOT / "frontend"
 

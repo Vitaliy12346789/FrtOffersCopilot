@@ -8,8 +8,10 @@ sqlalchemy>=2.0.0
 asyncpg>=0.29.0
 aiosqlite>=0.19.0
 
+# AI integration
+anthropic>=0.18.0       # Claude API for clause suggestion
+
 # Future additions (uncomment when needed)
-# openai>=1.0.0          # AI clause suggestion
-# anthropic>=0.18.0      # Claude API
+# openai>=1.0.0          # OpenAI alternative
 # reportlab>=4.0.0       # PDF generation
 # python-multipart       # File uploads
