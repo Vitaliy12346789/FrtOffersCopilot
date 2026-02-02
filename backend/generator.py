@@ -42,6 +42,15 @@ def get_clauses_data() -> dict:
     return load_json("clauses.json")
 
 
+def get_master_library() -> dict:
+    """Load Master Library with 45+ clauses"""
+    backend_path = Path(__file__).parent / "master_library.json"
+    if backend_path.exists():
+        with open(backend_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    raise FileNotFoundError("master_library.json not found")
+
+
 def find_load_port(ports_data: dict, port_name: str) -> Optional[dict]:
     """Find load port by name"""
     for port in ports_data["ports"]["load"]:

@@ -245,6 +245,73 @@ async def delete_offer(offer_id: int, db: AsyncSession = Depends(get_db)):
     return {"message": "Offer deleted successfully"}
 
 
+# ============================================================================
+# MASTER LIBRARY ENDPOINTS
+# ============================================================================
+
+@app.get("/api/clauses")
+async def get_clauses(
+    category: str = None,
+    subcategory: str = None,
+    port_type: str = None,
+    cargo_category: str = None
+):
+    """Get clauses from Master Library with optional filtering"""
+    from .generator import get_master_library
+
+    try:
+        library = get_master_library()
+        clauses = library.get("clauses", [])
+
+        # Filter by category
+        if category:
+            clauses = [c for c in clauses if c.get("category") == category]
+
+        # Filter by subcategory
+        if subcategory:
+            clauses = [c for c in clauses if c.get("subcategory") == subcategory]
+
+        # Filter by conditions
+        if port_type:
+            clauses = [c for c in clauses if c.get("conditions", {}).get("port_type") == port_type or not c.get("conditions", {}).get("port_type")]
+
+        if cargo_category:
+            clauses = [c for c in clauses if c.get("conditions", {}).get("cargo_category") == cargo_category or not c.get("conditions", {}).get("cargo_category")]
+
+        return {"clauses": clauses, "total": len(clauses)}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/clauses/categories")
+async def get_clause_categories():
+    """Get list of clause categories"""
+    from .generator import get_master_library
+
+    try:
+        library = get_master_library()
+        return {"categories": library.get("categories", [])}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/clauses/{clause_id}")
+async def get_clause(clause_id: str):
+    """Get a specific clause by ID"""
+    from .generator import get_master_library
+
+    try:
+        library = get_master_library()
+        for clause in library.get("clauses", []):
+            if clause.get("clause_id") == clause_id:
+                return clause
+        raise HTTPException(status_code=404, detail="Clause not found")
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 # Serve frontend static files
 frontend_path = PROJECT_ROOT / "frontend"
 

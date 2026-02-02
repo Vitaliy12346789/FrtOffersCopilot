@@ -1,0 +1,485 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-02-02",
+  "clauses": [
+    {
+      "clause_id": "COUNTRY-UKR-DAN-001",
+      "title": "Sulina/Bystroe Channel Passage",
+      "text": "VESSEL TO TRANSIT VIA SULINA OR BYSTROE CHANNEL AS PER MASTER'S DISCRETION. ALL CHANNEL/PILOTAGE DUES FOR OWNERS ACCOUNT.",
+      "category": "COUNTRY",
+      "subcategory": "Ukraine-Danube",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"port_type": "DANUBE"}
+    },
+    {
+      "clause_id": "COUNTRY-UKR-DAN-002",
+      "title": "Air Raids Clause",
+      "text": "IN CASE OF AIR RAIDS/ALERTS DURING LOADING, TIME USED NOT TO COUNT AS LAYTIME. MASTER TO FOLLOW PORT AUTHORITIES INSTRUCTIONS.",
+      "category": "COUNTRY",
+      "subcategory": "Ukraine-Danube",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"port_type": "DANUBE"}
+    },
+    {
+      "clause_id": "COUNTRY-UKR-DAN-003",
+      "title": "Combined Demurrage/Detention",
+      "text": "DEMURRAGE/DETENTION TO BE COMBINED FOR LOADING PORT INCLUDING ANY TIME LOST DUE TO CHANNEL TRANSIT DELAYS.",
+      "category": "COUNTRY",
+      "subcategory": "Ukraine-Danube",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"port_type": "DANUBE"}
+    },
+    {
+      "clause_id": "COUNTRY-UKR-DAN-004",
+      "title": "Danube Draft Restrictions",
+      "text": "OWNERS TO SATISFY THEMSELVES WITH PREVAILING DRAFT RESTRICTIONS IN DANUBE PORTS AND CHANNELS PRIOR TO FIXING.",
+      "category": "COUNTRY",
+      "subcategory": "Ukraine-Danube",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"port_type": "DANUBE"}
+    },
+    {
+      "clause_id": "COUNTRY-UKR-DAN-005",
+      "title": "River Berth Restrictions",
+      "text": "OWNERS TO SATISFY THEMSELVES WITH ANY KIND OF LOADING BERTH/PORT/CHANNEL/RIVER RESTRICTIONS.",
+      "category": "COUNTRY",
+      "subcategory": "Ukraine-Danube",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"port_type": "DANUBE"}
+    },
+    {
+      "clause_id": "COUNTRY-UKR-POC-001",
+      "title": "JCC Inspection Clause",
+      "text": "VESSEL SUBJECT TO JCC (JOINT COORDINATION CENTRE) INSPECTION PRIOR TO ENTERING/LEAVING UKRAINIAN WATERS. ANY DELAYS DUE TO JCC FOR OWNERS ACCOUNT.",
+      "category": "COUNTRY",
+      "subcategory": "Ukraine-POC",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"port_type": "POC"}
+    },
+    {
+      "clause_id": "COUNTRY-UKR-POC-002",
+      "title": "ERWI Clause",
+      "text": "ENGLISH, RUSSIAN AND WORLDWIDE INSTITUTE CLAUSES TO APPLY. VESSEL TO HAVE VALID WAR RISK INSURANCE COVERING UKRAINIAN WATERS.",
+      "category": "COUNTRY",
+      "subcategory": "Ukraine-POC",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"port_type": "POC"}
+    },
+    {
+      "clause_id": "COUNTRY-UKR-POC-003",
+      "title": "War Cancellation Clause",
+      "text": "IF HOSTILITIES PREVENT SAFE ACCESS TO LOADING PORT, EITHER PARTY MAY CANCEL THIS CONTRACT WITHOUT PENALTY, PROVIDED NOTICE GIVEN WITHIN 48 HRS.",
+      "category": "COUNTRY",
+      "subcategory": "Ukraine-POC",
+      "is_mandatory": true,
+      "requires_charterer_review": true,
+      "conditions": {"port_type": "POC"}
+    },
+    {
+      "clause_id": "COUNTRY-UKR-POC-004",
+      "title": "Additional War Insurance",
+      "text": "ANY ADDITIONAL WAR RISK PREMIUM (AWRP) FOR UKRAINIAN WATERS TO BE FOR CHARTERERS ACCOUNT, UP TO USD [AMOUNT] PER DAY.",
+      "category": "COUNTRY",
+      "subcategory": "Ukraine-POC",
+      "is_mandatory": true,
+      "requires_charterer_review": true,
+      "conditions": {"port_type": "POC"}
+    },
+    {
+      "clause_id": "COUNTRY-UKR-GEN-001",
+      "title": "Ukraine NOR Tendering",
+      "text": "AT LOAD PORT N.O.R. TO BE TENDERED ON WORKING DAYS DURING OFFICE HRS (08:00-17:00 HRS LT) FROM MONDAY TO FRIDAY.",
+      "category": "COUNTRY",
+      "subcategory": "Ukraine-General",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"load_country": "Ukraine"}
+    },
+    {
+      "clause_id": "COUNTRY-UKR-GEN-002",
+      "title": "Ukraine Holiday Calendar",
+      "text": "HOLIDAYS AS PER UKRAINE CALENDAR FOR THE RELEVANT YEAR.",
+      "category": "COUNTRY",
+      "subcategory": "Ukraine-General",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"load_country": "Ukraine"}
+    },
+    {
+      "clause_id": "COUNTRY-EGY-001",
+      "title": "Egypt NOR Tendering",
+      "text": "AT DISCHARGE PORT N.O.R. TO BE TENDERED ON WORKING DAYS DURING OFFICE HRS (08:00-12:00 HRS LT) FROM SUNDAY TO THURSDAY.",
+      "category": "COUNTRY",
+      "subcategory": "Egypt",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"discharge_country": "Egypt"}
+    },
+    {
+      "clause_id": "COUNTRY-EGY-002",
+      "title": "Egypt Sampling Requirements",
+      "text": "CARGO SAMPLING AND ANALYSIS TO BE CARRIED OUT BY APPROVED SURVEYOR AT DISCHARGE PORT. SAMPLING TIME NOT TO COUNT AS LAYTIME.",
+      "category": "COUNTRY",
+      "subcategory": "Egypt",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"discharge_country": "Egypt"}
+    },
+    {
+      "clause_id": "COUNTRY-EGY-003",
+      "title": "SHINC/FHINC Clause",
+      "text": "SUNDAYS AND HOLIDAYS INCLUDED (SHINC) AT LOAD PORT. FRIDAYS AND HOLIDAYS INCLUDED (FHINC) AT DISCHARGE PORT (EGYPT).",
+      "category": "COUNTRY",
+      "subcategory": "Egypt",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"discharge_country": "Egypt"}
+    },
+    {
+      "clause_id": "COUNTRY-EGY-004",
+      "title": "Egypt Documents Time",
+      "text": "TIME FOR DOCUMENTS TO BE PRESENTED AT DISCHARGE PORT: 72 HRS PRIOR VESSEL'S ETA. DELAY IN DOCUMENTS PRESENTATION NOT TO AFFECT LAYTIME.",
+      "category": "COUNTRY",
+      "subcategory": "Egypt",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"discharge_country": "Egypt"}
+    },
+    {
+      "clause_id": "COUNTRY-EGY-005",
+      "title": "Egypt Canal Dues",
+      "text": "SUEZ CANAL DUES, IF APPLICABLE, FOR CHARTERERS ACCOUNT.",
+      "category": "COUNTRY",
+      "subcategory": "Egypt",
+      "is_mandatory": false,
+      "requires_charterer_review": true,
+      "conditions": {"discharge_country": "Egypt"}
+    },
+    {
+      "clause_id": "PORT-RENI-001",
+      "title": "Reni Port Restrictions",
+      "text": "RENI PORT: MAX DRAFT 5.5M SW, MAX LOA 150M, MAX BEAM 22M. VESSEL TO COMPLY WITH ALL BERTH/CHANNEL RESTRICTIONS.",
+      "category": "PORT",
+      "subcategory": "Reni",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"load_port": "Reni"}
+    },
+    {
+      "clause_id": "PORT-IZMAIL-001",
+      "title": "Izmail Port Restrictions",
+      "text": "IZMAIL PORT: MAX DRAFT 5.5M SW, MAX LOA 145M. VESSEL TO SATISFY HERSELF WITH PREVAILING RESTRICTIONS.",
+      "category": "PORT",
+      "subcategory": "Izmail",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"load_port": "Izmail"}
+    },
+    {
+      "clause_id": "PORT-PIVDENNYI-001",
+      "title": "Pivdennyi Port Clause",
+      "text": "PIVDENNYI (YUZHNY) PORT: VESSEL TO COMPLY WITH PORT AUTHORITY REQUIREMENTS AND TRAFFIC MANAGEMENT SCHEME.",
+      "category": "PORT",
+      "subcategory": "Pivdennyi",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"load_port": "Pivdennyi"}
+    },
+    {
+      "clause_id": "PORT-ODESA-001",
+      "title": "Odesa Port Clause",
+      "text": "ODESA PORT: VESSEL TO COMPLY WITH ALL PORT AUTHORITY REQUIREMENTS. BERTH ALLOCATION SUBJECT TO PORT MASTER'S DISCRETION.",
+      "category": "PORT",
+      "subcategory": "Odesa",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"load_port": "Odesa"}
+    },
+    {
+      "clause_id": "PORT-ALEXANDRIA-001",
+      "title": "Alexandria Port Clause",
+      "text": "ALEXANDRIA: 1 SB ALWAYS AFLOAT. VESSEL TO COMPLY WITH PORT AUTHORITY REQUIREMENTS AND QUARANTINE PROCEDURES.",
+      "category": "PORT",
+      "subcategory": "Alexandria",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"discharge_port": "Alexandria"}
+    },
+    {
+      "clause_id": "PORT-DAMIETTA-001",
+      "title": "Damietta Port Clause",
+      "text": "DAMIETTA: 1 SB ALWAYS AFLOAT. BERTH SUBJECT TO AVAILABILITY AND PORT CONGESTION.",
+      "category": "PORT",
+      "subcategory": "Damietta",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"discharge_port": "Damietta"}
+    },
+    {
+      "clause_id": "CARGO-GRAIN-001",
+      "title": "Grain Description",
+      "text": "CARGO: [QUANTITY] MTS (+/- [TOLERANCE]% MOLCO) OF [CARGO_TYPE] IN BULK STW ABT [STW_MIN]-[STW_MAX] CF/T WOG.",
+      "category": "CARGO",
+      "subcategory": "Grain",
+      "is_mandatory": true,
+      "requires_charterer_review": true,
+      "conditions": {"cargo_category": "grain"}
+    },
+    {
+      "clause_id": "CARGO-GRAIN-002",
+      "title": "Previous Cargo",
+      "text": "PREVIOUS CARGO: GRAIN OR GRAIN SUITABLE. IF DIFFERENT CARGO CARRIED PRIOR, HOLDS TO BE CLEANED TO GRAIN STANDARD AT OWNERS TIME AND EXPENSE.",
+      "category": "CARGO",
+      "subcategory": "Grain",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"cargo_category": "grain"}
+    },
+    {
+      "clause_id": "CARGO-GRAIN-003",
+      "title": "Trimming Clause",
+      "text": "CARGO TO BE TRIMMED FREE OF CHARGE TO OWNERS. CHARTERERS TO PROVIDE SUFFICIENT TRIMMING IF REQUIRED BY MASTER.",
+      "category": "CARGO",
+      "subcategory": "Grain",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"cargo_category": "grain"}
+    },
+    {
+      "clause_id": "CARGO-GRAIN-004",
+      "title": "Independent Surveyor",
+      "text": "INDEPENDENT SURVEYOR TO BE APPOINTED BY CHARTERERS AT LOAD AND DISCHARGE PORTS. SURVEYOR'S FIGURES TO BE BINDING FOR FREIGHT CALCULATION.",
+      "category": "CARGO",
+      "subcategory": "Grain",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {"cargo_category": "grain"}
+    },
+    {
+      "clause_id": "CARGO-GRAIN-005",
+      "title": "STW Verification",
+      "text": "STOWAGE FACTOR (STW) TO BE VERIFIED BY CHARTERERS PRIOR TO LOADING. ACTUAL STW MAY VARY DUE TO MOISTURE CONTENT AND GRADE.",
+      "category": "CARGO",
+      "subcategory": "Grain",
+      "is_mandatory": true,
+      "requires_charterer_review": true,
+      "conditions": {"cargo_category": "grain"}
+    },
+    {
+      "clause_id": "CARGO-GRAIN-006",
+      "title": "Fumigation",
+      "text": "FUMIGATION, IF REQUIRED BY RECEIVER/AUTHORITIES, TO BE FOR CHARTERERS ACCOUNT. VESSEL TO PROVIDE GASTIGHT HOLDS.",
+      "category": "CARGO",
+      "subcategory": "Grain",
+      "is_mandatory": false,
+      "requires_charterer_review": true,
+      "conditions": {"cargo_category": "grain"}
+    },
+    {
+      "clause_id": "OPERATION-LAYTIME-001",
+      "title": "Laytime Commencement",
+      "text": "LAYTIME TO COMMENCE AT 0800 HRS LT ON THE NEXT WORKING DAY AFTER VALID NOR TENDERED, VESSEL MOORED ABAL (ALWAYS BERTH ALWAYS LOADING/DISCHARGING).",
+      "category": "OPERATION",
+      "subcategory": "Laytime",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {}
+    },
+    {
+      "clause_id": "OPERATION-LAYTIME-002",
+      "title": "Laytime Calculation",
+      "text": "LAYTIME: [LOAD_RATE] MTS PER WWD SHINC AT LOAD PORT, [DISCH_RATE] MTS PER WWD FHINC AT DISCHARGE PORT.",
+      "category": "OPERATION",
+      "subcategory": "Laytime",
+      "is_mandatory": true,
+      "requires_charterer_review": true,
+      "conditions": {}
+    },
+    {
+      "clause_id": "OPERATION-LAYTIME-003",
+      "title": "Reversible Laytime",
+      "text": "LAYTIME TO BE REVERSIBLE BETWEEN LOADING AND DISCHARGING PORTS.",
+      "category": "OPERATION",
+      "subcategory": "Laytime",
+      "is_mandatory": false,
+      "requires_charterer_review": true,
+      "conditions": {}
+    },
+    {
+      "clause_id": "OPERATION-DEM-001",
+      "title": "Demurrage Rate",
+      "text": "DEMURRAGE: USD [RATE] PER DAY PRO RATA (PDPR). FULL DESPATCH (FD) BOTH ENDS (BENDS), LESS BROKERAGE COMMISSION.",
+      "category": "OPERATION",
+      "subcategory": "Demurrage",
+      "is_mandatory": true,
+      "requires_charterer_review": true,
+      "conditions": {}
+    },
+    {
+      "clause_id": "OPERATION-DEM-002",
+      "title": "Demurrage Payment",
+      "text": "DEMURRAGE PAYABLE WITHIN 30 DAYS UPON RECEIPT OF OWNERS SUPPORTING DOCUMENTS INCLUDING TIME SHEET AND INVOICES.",
+      "category": "OPERATION",
+      "subcategory": "Demurrage",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {}
+    },
+    {
+      "clause_id": "OPERATION-DEM-003",
+      "title": "Half Despatch",
+      "text": "DESPATCH: HALF DEMURRAGE (DHD) ON ALL TIME SAVED AT BOTH ENDS.",
+      "category": "OPERATION",
+      "subcategory": "Demurrage",
+      "is_mandatory": false,
+      "requires_charterer_review": true,
+      "conditions": {}
+    },
+    {
+      "clause_id": "FREIGHT-001",
+      "title": "Freight Rate",
+      "text": "FREIGHT: USD [RATE] PMT FIOST (FREE IN OUT STOWED TRIMMED).",
+      "category": "FREIGHT",
+      "subcategory": "Rate",
+      "is_mandatory": true,
+      "requires_charterer_review": true,
+      "conditions": {}
+    },
+    {
+      "clause_id": "FREIGHT-002",
+      "title": "Freight Payment",
+      "text": "FREIGHT PAYABLE 100% WITHIN 5 BANKING DAYS AFTER COMPLETION OF LOADING AND SIGNING/RELEASING BILLS OF LADING.",
+      "category": "FREIGHT",
+      "subcategory": "Payment",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {}
+    },
+    {
+      "clause_id": "FREIGHT-003",
+      "title": "Commission",
+      "text": "ADDRESS COMMISSION: [PERCENTAGE]% TO CHARTERERS. BROKERAGE COMMISSION: [PERCENTAGE]% TO BROKERS.",
+      "category": "FREIGHT",
+      "subcategory": "Commission",
+      "is_mandatory": true,
+      "requires_charterer_review": true,
+      "conditions": {}
+    },
+    {
+      "clause_id": "LEGAL-001",
+      "title": "GSB(A) Clause",
+      "text": "GSB(A): GOOD SAFE BERTH, ALWAYS AFLOAT.",
+      "category": "LEGAL",
+      "subcategory": "Berth",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {}
+    },
+    {
+      "clause_id": "LEGAL-002",
+      "title": "ISM/ISPS Compliance",
+      "text": "VESSEL TO BE ISM/ISPS COMPLIANT WITH ALL VALID CERTIFICATES FOR THE INTENDED VOYAGE.",
+      "category": "LEGAL",
+      "subcategory": "Compliance",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {}
+    },
+    {
+      "clause_id": "LEGAL-003",
+      "title": "Arbitration Clause",
+      "text": "ANY DISPUTE ARISING FROM THIS CHARTER PARTY TO BE REFERRED TO ARBITRATION IN LONDON ACCORDING TO ENGLISH LAW.",
+      "category": "LEGAL",
+      "subcategory": "Arbitration",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {}
+    },
+    {
+      "clause_id": "LEGAL-004",
+      "title": "BIMCO Sanctions Clause",
+      "text": "BIMCO SANCTIONS CLAUSE 2020 TO APPLY.",
+      "category": "LEGAL",
+      "subcategory": "Sanctions",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {}
+    },
+    {
+      "clause_id": "LEGAL-005",
+      "title": "Proforma Reference",
+      "text": "OTHERWISE AS PER ATTACHED CHARTERERS PROFORMA C/P BASED ON SYNACOMEX 2000, LOGICALLY AMENDED AS PER MAIN TERMS AGREED (WHICH ALWAYS PREVAIL).",
+      "category": "LEGAL",
+      "subcategory": "Proforma",
+      "is_mandatory": true,
+      "requires_charterer_review": false,
+      "conditions": {}
+    },
+    {
+      "clause_id": "LEGAL-006",
+      "title": "Force Majeure",
+      "text": "NEITHER PARTY SHALL BE LIABLE FOR ANY FAILURE TO PERFORM DUE TO FORCE MAJEURE EVENTS INCLUDING BUT NOT LIMITED TO WAR, STRIKES, NATURAL DISASTERS.",
+      "category": "LEGAL",
+      "subcategory": "Force Majeure",
+      "is_mandatory": false,
+      "requires_charterer_review": true,
+      "conditions": {}
+    },
+    {
+      "clause_id": "VESSEL-001",
+      "title": "Vessel Particulars",
+      "text": "VESSEL: TBN. OWNERS TO NOMINATE SUITABLE VESSEL WITHIN [DAYS] DAYS PRIOR TO LAYCAN.",
+      "category": "VESSEL",
+      "subcategory": "Nomination",
+      "is_mandatory": true,
+      "requires_charterer_review": true,
+      "conditions": {}
+    },
+    {
+      "clause_id": "VESSEL-002",
+      "title": "Vessel Approval",
+      "text": "VESSEL SUBJECT TO CHARTERERS/RECEIVERS APPROVAL. CHARTERERS TO RESPOND WITHIN 24 HOURS OF NOMINATION.",
+      "category": "VESSEL",
+      "subcategory": "Approval",
+      "is_mandatory": false,
+      "requires_charterer_review": true,
+      "conditions": {}
+    },
+    {
+      "clause_id": "VESSEL-003",
+      "title": "Vessel Age",
+      "text": "VESSEL NOT TO EXCEED [AGE] YEARS OF AGE AT TIME OF LOADING.",
+      "category": "VESSEL",
+      "subcategory": "Age",
+      "is_mandatory": false,
+      "requires_charterer_review": true,
+      "conditions": {}
+    },
+    {
+      "clause_id": "OR-SUB-001",
+      "title": "OR SUB Clause",
+      "text": "OR SUB: OWNERS SUBJECTS TO BE LIFTED WITHIN 24 HRS OF OWNERS CONFIRMATION.",
+      "category": "LEGAL",
+      "subcategory": "Subjects",
+      "is_mandatory": false,
+      "requires_charterer_review": false,
+      "conditions": {}
+    }
+  ],
+  "categories": [
+    {"id": "COUNTRY", "name": "Country-Specific Clauses", "description": "Clauses related to specific countries (Ukraine, Egypt, etc.)"},
+    {"id": "PORT", "name": "Port-Specific Clauses", "description": "Clauses for specific ports with restrictions and requirements"},
+    {"id": "CARGO", "name": "Cargo Clauses", "description": "Clauses related to cargo type (grain, steel, etc.)"},
+    {"id": "OPERATION", "name": "Operational Clauses", "description": "Laytime, demurrage, and operational terms"},
+    {"id": "FREIGHT", "name": "Freight Clauses", "description": "Freight rate, payment, and commission terms"},
+    {"id": "LEGAL", "name": "Legal Clauses", "description": "Arbitration, compliance, and legal terms"},
+    {"id": "VESSEL", "name": "Vessel Clauses", "description": "Vessel nomination, approval, and specifications"}
+  ]
+}
